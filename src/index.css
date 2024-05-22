@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Roboto-bold';
+  src: url(/fonts/roboto-bold.woff) format("woff"), 
+       url(/fonts/roboto-bold.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url(/fonts/roboto-regular.woff) format("woff"), 
+       url(/fonts/roboto-regular.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto-medium';
+  src: url(/fonts/roboto-medium.woff) format("woff"), 
+       url(/fonts/roboto-medium.woff2) format("woff2");
+  font-display: swap;
+}
+
+.container{
+  @apply max-w-[1200px] w-full mx-auto px-2
+}
+
+@layer base{
+  body{
+    @apply bg-primary leading-7 font-regular 
+  }
+
+  ul{
+    @apply list-none
+  }
+
+  img{
+    @apply block w-full h-auto  
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    @apply font-thicker 
+  }
+  h1{
+    @apply text-3xl mb-4
+  }
+  h2{
+    @apply text-xl mb-4
+  }
+  h3{
+    @apply text-lg mb-2
+  }
+  h4{
+    @apply text-base mb-4
+  }
+  p{
+    @apply mb-2 !leading-6 text-lightgray
+  }
+
+  /* article img{
+    @apply w-full h-[400px] object-cover rounded-xl
+  } */
+}
+
+@layer components{
+
+  /* Buttons */
+  .btn{
+    @apply inline-block p-1 border border-transparent text-white rounded-full items-center cursor-pointer 
+  }
+  .btn-cards{
+    @apply bg-accent hover:bg-lightgray p-1 rounded-full transition-all
+  }
+  .btn-accent{
+    @apply bg-accent hover:bg-lightgray p-2 rounded-md transition-all
+  }
+  .btn-transparent{
+    @apply bg-transparent border border-lightgray text-lightgray hover:border-accent hover:text-accent rounded-md
+  }
+
+  /* Cards */
+
+  /* Nav */
+  nav{
+    @apply h-auto max-h-0 transition-all overflow-hidden duration-500
+  }
+
+  nav.show{
+    @apply max-h-[400px]
+  }
+}

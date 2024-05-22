@@ -1,0 +1,18 @@
+RewriteEngine On
+# use for authentication
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+Header set Access-Control-Allow-Origin *
+
+#################################### ALL FOR DEVELOPER #################################
+RewriteRule ^upload/photo$ core/upload-photo.php [L]
+
+### SETTING POST ###
+RewriteRule ^post$ controllers/post/post.php [L]
+RewriteRule ^post/([0-9]+)$ controllers/post/post.php?postid=$1 [L]
+RewriteRule ^post/active/([0-9]+)$ controllers/post/active.php?postid=$1 [L]
+RewriteRule ^post/search$ controllers/post/search.php [L]
+
