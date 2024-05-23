@@ -10,9 +10,27 @@ Header set Access-Control-Allow-Origin *
 #################################### ALL FOR DEVELOPER #################################
 RewriteRule ^upload/photo$ core/upload-photo.php [L]
 
-### SETTING POST ###
+### SETTING TRENDING ###
 RewriteRule ^post$ controllers/post/post.php [L]
 RewriteRule ^post/([0-9]+)$ controllers/post/post.php?postid=$1 [L]
 RewriteRule ^post/active/([0-9]+)$ controllers/post/active.php?postid=$1 [L]
 RewriteRule ^post/search$ controllers/post/search.php [L]
+
+### SETTING FEATURE ###
+RewriteRule ^feature$ controllers/feature/feature.php [L]
+RewriteRule ^feature/([0-9]+)$ controllers/feature/feature.php?featureid=$1 [L]
+RewriteRule ^feature/active/([0-9]+)$ controllers/feature/active.php?featureid=$1 [L]
+RewriteRule ^feature/search$ controllers/feature/search.php [L]
+
+### SETTING FASHION ###
+RewriteRule ^fashion$ controllers/fashion/fashion.php [L]
+RewriteRule ^fashion/([0-9]+)$ controllers/fashion/fashion.php?fashionid=$1 [L]
+RewriteRule ^fashion/active/([0-9]+)$ controllers/fashion/active.php?fashionid=$1 [L]
+RewriteRule ^fashion/search$ controllers/fashion/search.php [L]
+
+### SETTING POPULAR ###
+RewriteRule ^popular$ controllers/popular/popular.php [L]
+RewriteRule ^popular/([0-9]+)$ controllers/popular/popular.php?popularid=$1 [L]
+RewriteRule ^popular/active/([0-9]+)$ controllers/popular/active.php?popularid=$1 [L]
+RewriteRule ^popular/search$ controllers/popular/search.php [L]
 

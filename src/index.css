@@ -78,6 +78,40 @@
     @apply bg-transparent border border-lightgray text-lightgray hover:border-accent hover:text-accent rounded-md
   }
 
+  /* Dashboard Buttons */
+  .btn2{
+    @apply px-2 py-1 rounded-md text-sm transition-colors flex items-center gap-2
+  }
+
+  .btn:disabled{
+    @apply cursor-not-allowed opacity-60
+  }
+
+  .btn--accent{
+    @apply bg-facebook text-white
+  }
+
+  .btn--alert{
+    @apply bg-red-600 text-white
+  }
+
+  .btn--info{
+    @apply bg-accent text-white
+  }
+
+  .btn--warning{
+    @apply bg-yellow-600 text-white
+  }
+
+  .btn-form{
+    @apply p-2 w-1/2 flex justify-center gap-2 items-center
+  }
+
+  .btn--cancel{
+    @apply bg-gray-600 text-white
+  }
+
+
   /* Cards */
 
   /* Nav */
@@ -87,5 +121,90 @@
 
   nav.show{
     @apply max-h-[400px]
+  }
+
+  /* Dashboard Nav */
+  .dashboard-nav{
+    @apply space-y-4 mt-[100px]
+  }
+
+  .nav-link {
+    @apply p-1 pl-8
+  }
+
+  .nav-link a{
+    @apply flex gap-3 items-center
+  }
+
+  .nav-link.active{
+    @apply border-l border-accent
+  }
+
+  .nav-link.active a{
+    @apply text-accent
+  }
+
+  .tab-link{
+    @apply px-8 py-2 hover:bg-accent hover:text-lightcolor rounded-lg flex
+  }
+
+  
+  .tab-link.active a{
+    @apply text-primary hover:text-lightcolor
+  }
+
+  /* Loader */
+  .loading-bar::after {
+    @apply content-[''] absolute top-0 left-0 w-[180%] h-full  bg-gradient-to-r from-transparent via-accent to-transparent animate-loading;
+  }
+
+  /* Table */
+  table{
+    @apply w-full text-sm 
+  }
+
+  table th{
+    @apply font-bold py-4 px-2 text-left 
+  }
+
+  table td{
+    @apply p-2 text-left  
+  }
+
+  .table-action ul{
+    @apply flex gap-4
+  }
+
+  .form-action{
+    @apply flex gap-2 justify-end
+  }
+
+  .tooltip{
+    @apply text-base relative
+  }
+
+  .tooltip:after{
+    @apply absolute content-[attr(data-tooltip)] text-xs p-0.5 px-1.5 text-lightcolor bg-accent bg-opacity-90 top-[calc(100%+10px)]
+     left-1/2 -translate-x-1/2 scale-0 transition-transform z-50
+  }
+
+  .tooltip:hover::after{
+    @apply scale-100
+  }
+
+  .input-wrap{
+    @apply mb-3 relative
+  }
+
+  .input-wrap label {
+    @apply mb-1 block text-xs
+  }
+
+  .input-wrap input, textarea{
+    @apply block w-full p-1 rounded-md outline-none border-2 focus:border-facebook focus:bg-primary/5 focus:text-darkcolor text-darkcolor
+  }
+
+  .input-wrap small{
+    @apply absolute top-0 right-1 text-red-500 italic text-xs
   }
 }

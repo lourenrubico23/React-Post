@@ -1,8 +1,21 @@
 import React from 'react'
 import Card from './Card'
 import SectionHeader from './SectionHeader'
+import useQueryData from '../../../../custom-hooks/useQueryData';
 
 const Feature = () => {
+
+  const {
+    isLoading,
+    isFetching,
+    error,
+    data: feature,
+  } = useQueryData(
+     "/v1/feature", // endpoint
+     "get", // method
+    "feature", // key
+  );
+
   return (
     <section className='feature py-10'>
        <div className="container">

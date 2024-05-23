@@ -49,10 +49,10 @@ const ModalConfirm = ({position, endpoint, queryKey, isArchiving}) => {
                 <button onClick={handleClose}><LiaTimesSolid/></button>
             </div>
 
-            <div className="modal-body p-4 rounded-b-md bg-primary/90">
+            <div className="modal-body p-4 rounded-b-md bg-primary/80">
               <div className='flex gap-2 items-center'>
                 <PiArchive className='text-4xl mx-auto text-yellow-600 mb-3'/>
-                <div className='text-lightcolor'>
+                <div className='text-darkcolor'>
                   <h2 className='mb-2'>{isArchiving === 1 ? "Restore" : "Archive"} Record</h2>
                   <p className='mb-5'>Are you sure you want to {isArchiving === 1 ? "restore" : "archive"} this record?</p>
                 </div>
