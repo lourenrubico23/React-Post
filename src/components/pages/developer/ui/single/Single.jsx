@@ -1,19 +1,38 @@
 import React from 'react'
 import UIHeader from '../../../../partials/UIHeader'
 import UIFooter from '../../../../partials/UIFooter'
-import { baseImgUrl } from '../../../../helpers/functions-general'
+import { baseImgUrl, devBaseImgUrl, getUrlParam } from '../../../../helpers/functions-general'
 import { GoDotFill } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { CiClock2 } from 'react-icons/ci'
+import useQueryData from '../../../../custom-hooks/useQueryData'
+import Markdown from 'react-markdown'
 
 const Single = ({height="lg"}) => {
+    const id = getUrlParam().get('id')
+
+    const {
+        isLoading,
+        isFetching,
+        error,
+        data: post,
+      } = useQueryData (
+       `/v1/post/${id}`, // endpoint
+       "get", // method
+       "post", // key
+      );
+
+      console.log(post)
+
+
+
   return (
     <>
       <UIHeader/>
       <div className='banner mt-5 mb-10'>
             <div className="container">
-                <h1 className='max-w-[800px] text-center mx-auto bg-footerblue px-5 py-10 bg-opacity-10 rounded-lg border-2 border-footerblue border-opacity-40 mb-0'>Post Default</h1>
+                <h1 className='max-w-[800px] text-center mx-auto bg-footerblue px-5 py-10 bg-opacity-10 rounded-lg border-2 border-footerblue border-opacity-40 mb-0'>{post?.data[0].post_title}</h1>
             </div> 
       </div>
 
@@ -21,9 +40,9 @@ const Single = ({height="lg"}) => {
         <div className='grid md:grid-cols-[2fr_1fr] my-[100px] gap-10'>
             <article className='shadow-[4px_2px_10px_5px_rgba(0,0,0,0.1)]  p-5 rounded-2xl '>
                 <div className={`overflow-hidden rounded-xl mb-5 -mt-10 ${height === "lg" ? "h-[500px]" : "h-[300px]" }`}>
-                    <img src={`${baseImgUrl}/7.jpg`} alt="" className='mb-5 w-full h-[500px] object-cover rounded-xl  overflow-hidden  hover:scale-110 transition-transform' />
+                    <img src={`${devBaseImgUrl}/${post?.data[0].post_image}`} alt="" className='mb-5 w-full h-[500px] object-cover rounded-xl  overflow-hidden  hover:scale-110 transition-transform' />
                 </div>
-                <small className='bg-lightgray px-4 py-1 rounded-full text-lightcolor font-thick text-sm'>Lifestyle</small>
+                <small className='bg-lightgray px-4 py-1 rounded-full text-lightcolor font-thick text-sm'>{post?.data[0].post_category}</small>
                 <div className='flex justify-between'>
                     <div className='flex justify-between items-center gap-5 my-5'>
                         <div>
@@ -31,19 +50,23 @@ const Single = ({height="lg"}) => {
                         </div>
                         
                         <ul className='flex justify-center gap-4 text-sm text-lightgray items-center'>
-                            <li>Louren Rubico</li>
+                            <li>{post?.data[0].post_author}</li>
                             <li className='text-[.5rem] text-accent'><GoDotFill/></li>
-                            <li>May 22, 2024</li>
+                            <li>{post?.data[0].post_publish_date}</li>
                             <li className='text-[.5rem] text-accent'><GoDotFill/></li>
                             <li>05 Comment</li>
                         </ul>
                         
                     </div>
                 </div>
-                <h2>Nice Photo Shooting With Hand Classic Style</h2>
-                <p className='my-5'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
-                <h2>Relaxing With Nice View After Enjoy Foods</h2>
-                <p className='my-5'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <h2>{post?.data[0].post_title}</h2>
+                <Markdown>
+                    {post?.data[0].post_article}
+                </Markdown>
+                <h2>{post?.data[0].post_title}</h2>
+                <Markdown>
+                    {post?.data[0].post_article}
+                </Markdown>
                 <img src={`${baseImgUrl}/2.jpg`} alt="" className='mb-5 w-full h-[500px] object-cover rounded-md' />
             </article>
 

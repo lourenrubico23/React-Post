@@ -67,7 +67,7 @@ Class Post {
     }
 
 
-    public function readById()
+    public function readById() //read Id of the post
     {
         try {
             $sql = "select * ";
