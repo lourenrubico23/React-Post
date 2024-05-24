@@ -34,3 +34,8 @@ RewriteRule ^popular/([0-9]+)$ controllers/popular/popular.php?popularid=$1 [L]
 RewriteRule ^popular/active/([0-9]+)$ controllers/popular/active.php?popularid=$1 [L]
 RewriteRule ^popular/search$ controllers/popular/search.php [L]
 
+### SETTING CATEGORY ###
+RewriteRule ^category$ controllers/category/category.php [L]
+RewriteRule ^category/([0-9]+)$ controllers/category/category.php?categoryid=$1 [L]
+RewriteRule ^category/active/([0-9]+)$ controllers/category/active.php?categoryid=$1 [L]
+RewriteRule ^category/search$ controllers/category/search.php [L]

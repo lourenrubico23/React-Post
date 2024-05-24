@@ -17,7 +17,7 @@ export const InputText = ({label, ...props}) => {
     )
 }
 
-/* export const InputSelect = ({ label, onChange = null, ...props }) => {
+export const InputSelect = ({ label, onChange = null, ...props }) => {
     const [field, meta] = useField(props);
   
     return (
@@ -44,7 +44,7 @@ export const InputText = ({label, ...props}) => {
         ) : null}
       </>
     );
-  }; */
+  };
 
 
   export const InputTextArea = ({

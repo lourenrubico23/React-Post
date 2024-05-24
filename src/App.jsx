@@ -7,6 +7,7 @@ import { StoreProvider } from "./store/StoreContext"
 import Feature from "./components/pages/developer/dashboard/feature/Feature"
 import Fashion from "./components/pages/developer/dashboard/fashion/Fashion"
 import Popular from "./components/pages/developer/dashboard/popular/Popular"
+import Category from "./components/pages/developer/dashboard/category/Category"
 
 function App() {
   const queryClient = new QueryClient
@@ -23,6 +24,7 @@ function App() {
             <Route path="/dashboard/feature" element={<Feature/>}/>
             <Route path="/dashboard/fashion" element={<Fashion/>}/>
             <Route path="/dashboard/popular" element={<Popular/>}/>
+            <Route path="/dashboard/category" element={<Category/>}/>
           </Routes>
         </Router>
         </StoreProvider>

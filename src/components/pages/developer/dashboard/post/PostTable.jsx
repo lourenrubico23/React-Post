@@ -79,7 +79,7 @@ const PostTable = ({isLoading, isFetching, post, setItemEdit}) => {
                                         <tr className='hover:bg-accent/10' key={key}>
                                             <td>{counter++}</td>
                                             <td>{item.post_title}</td>
-                                            <td>{item.post_category}</td>
+                                            <td>{item.category_title}</td>
                                             <td>{item.post_image}</td>
                                             <td>{item.post_author}</td>
                                             <td>{item.post_article}</td>

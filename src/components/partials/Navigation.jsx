@@ -27,6 +27,7 @@ const Navigation = () => {
             <li className='tab-link'><Link to="/dashboard/feature" className='flex items-center gap-2'><MdOutlineFeaturedPlayList />Feature</Link></li>
             <li className='tab-link'><Link to="/dashboard/fashion" className='flex items-center gap-2'><PiCoatHangerBold />Fashion & Style</Link></li>
             <li className='tab-link'><Link to="/dashboard/popular" className='flex items-center gap-2'><BsFileBarGraph />Popular Category</Link></li>
+            <li className='tab-link'><Link to="/dashboard/category" className='flex items-center gap-2'><BsFileBarGraph />Category</Link></li>
         </ul>
 
     </aside>

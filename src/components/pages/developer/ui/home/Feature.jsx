@@ -9,24 +9,24 @@ const Feature = () => {
     isLoading,
     isFetching,
     error,
-    data: feature,
+    data: post,
   } = useQueryData(
-     "/v1/feature", // endpoint
+     "/v1/post", // endpoint
      "get", // method
-    "feature", // key
+    "post", // key
   );
+
+  const getFeatured = () => post?.data.filter(item => item.post_category_id === 2)
 
   return (
     <section className='feature py-10'>
        <div className="container">
             <SectionHeader title='Feature Now' hasLink={true} link='/feature'/>
             <div className='grid mt-10 gap-10 md:grid md:grid-cols-3 md:gap-10'>
-                <Card height='sm'/>
-                <Card height='sm'/>
-                <Card height='sm'/>
-                <Card height='sm'/>
-                <Card height='sm'/>
-                <Card height='sm'/>
+              {!isLoading && getFeatured().map((item, key) => (
+                <Card height='sm' item={item} key={key}/>
+              ))}
+                
             </div> 
         </div> 
     </section>

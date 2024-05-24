@@ -200,7 +200,7 @@
     @apply mb-1 block text-xs
   }
 
-  .input-wrap input, textarea{
+  .input-wrap input, textarea, select{
     @apply block w-full p-1 rounded-md outline-none border-2 focus:border-facebook focus:bg-primary/5 focus:text-darkcolor text-darkcolor
   }
 

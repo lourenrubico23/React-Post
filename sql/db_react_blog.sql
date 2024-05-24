@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2024 at 04:50 AM
+-- Generation Time: May 24, 2024 at 09:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `category_aid` int(11) NOT NULL,
+  `category_title` varchar(50) NOT NULL,
+  `category_is_active` tinyint(1) NOT NULL,
+  `category_datetime` varchar(20) NOT NULL,
+  `category_created` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_aid`, `category_title`, `category_is_active`, `category_datetime`, `category_created`) VALUES
+(1, 'Trending', 1, '2024-05-24 14:33:18', '2024-05-24 14:33:18'),
+(2, 'Featured', 1, '2024-05-24 14:33:29', '2024-05-24 14:33:29'),
+(3, 'Lifestyle', 1, '2024-05-24 14:41:39', '2024-05-24 14:41:39'),
+(4, 'Food', 1, '2024-05-24 14:41:46', '2024-05-24 14:41:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `fashion`
 --
 
@@ -39,6 +63,13 @@ CREATE TABLE `fashion` (
   `fashion_datetime` varchar(20) NOT NULL,
   `fashion_publish_date` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `fashion`
+--
+
+INSERT INTO `fashion` (`fashion_aid`, `fashion_title`, `fashion_image`, `fashion_author`, `fashion_category`, `fashion_is_active`, `fashion_article`, `fashion_created`, `fashion_datetime`, `fashion_publish_date`) VALUES
+(1, 'Fashion Style now', '2.jpg', 'louren', 'Fashion', 1, 'gjjfhf', '2024-05-24 15:20:45', '2024-05-24 15:20:45', 'yhtfg');
 
 -- --------------------------------------------------------
 
@@ -106,7 +137,7 @@ CREATE TABLE `post` (
   `post_title` varchar(100) NOT NULL,
   `post_image` varchar(50) NOT NULL,
   `post_author` varchar(50) NOT NULL,
-  `post_category` varchar(50) NOT NULL,
+  `post_category_id` int(11) NOT NULL,
   `post_is_active` tinyint(1) NOT NULL,
   `post_article` text NOT NULL,
   `post_created` varchar(20) NOT NULL,
@@ -118,15 +149,22 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`post_aid`, `post_title`, `post_image`, `post_author`, `post_category`, `post_is_active`, `post_article`, `post_created`, `post_datetime`, `post_publish_date`) VALUES
-(2, 'This Is My Favourite Fashion Style', '15.jpg', 'Louren Rubico', 'Fashion', 1, 'bbbbbbbbbbbbb', '2024-05-22 14:34:53', '2024-05-23 10:21:10', 'May 22, 2024'),
-(3, 'Great Holiday Enjoy With The Sea', '9.jpg', 'Louren', 'Travel', 1, 'mmmmmmmmmmmmmmmmmm', '2024-05-23 08:08:47', '2024-05-23 10:22:48', 'May 23, 2024'),
-(4, 'The Dress Style Wearing Right Now', '14.jpg', 'Louren', 'Lifestyle', 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \\\'Content here, content here\\\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.', '2024-05-23 10:17:37', '2024-05-23 10:17:37', 'May 23, 2024'),
-(5, 'Enjoy Work And Do What Ever You Want', '16.jpg', 'meee', 'Lifestyle', 1, 'sddsds', '2024-05-23 10:23:41', '2024-05-23 10:23:41', 'May 23, 2024');
+INSERT INTO `post` (`post_aid`, `post_title`, `post_image`, `post_author`, `post_category_id`, `post_is_active`, `post_article`, `post_created`, `post_datetime`, `post_publish_date`) VALUES
+(2, 'This Is My Favourite Fashion Style', '15.jpg', 'Louren Rubico', 3, 1, 'bbbbbbbbbbbbb', '2024-05-22 14:34:53', '2024-05-24 14:42:03', 'May 22, 2024'),
+(3, 'Great Holiday Enjoy With The Sea', '9.jpg', 'Louren', 0, 1, 'mmmmmmmmmmmmmmmmmm', '2024-05-23 08:08:47', '2024-05-24 14:55:11', '2024-05-24'),
+(4, 'The Dress Style Wearing Right Now', '14.jpg', 'Louren', 4, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Content here, content here\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.', '2024-05-23 10:17:37', '2024-05-24 15:09:24', '2024-05-01'),
+(5, 'Enjoy Work And Do What Ever You Want', '16.jpg', 'meee', 2, 1, 'sddsds', '2024-05-23 10:23:41', '2024-05-24 15:09:29', 'May 23, 2024'),
+(6, 'Foodsssss', '12.jpg', 'likhiouh', 1, 1, 'gyiiiiiiiiiiiiiiiiiiiiiiiiigbyfhvhuy', '2024-05-24 15:05:06', '2024-05-24 15:09:42', '2024-05-24');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_aid`);
 
 --
 -- Indexes for table `fashion`
@@ -157,10 +195,16 @@ ALTER TABLE `post`
 --
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `fashion`
 --
 ALTER TABLE `fashion`
-  MODIFY `fashion_aid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `fashion_aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `feature`
@@ -178,7 +222,7 @@ ALTER TABLE `popular`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `post_aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
